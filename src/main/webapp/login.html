@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Kullanıcı Girişi</title>
+
+    <link href="login-box.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+
+
+        function submitlogin() {
+            document.loginform.submit();
+        }
+
+        function submitenter(myfield, e) {
+            var keycode;
+            if (window.event) keycode = window.event.keyCode;
+            else if (e) keycode = e.which;
+            else return true;
+
+            if (keycode == 13) {
+                submitlogin();
+                return false;
+            }
+            else
+                return true;
+        }
+    </script>
+</head>
+
+<body style="background-color:silver;">
+
+
+<div style="padding: 100px 0 0 250px;">
+
+    <form action="loginCheck" name="loginform" method="post">
+        <div id="login-box">
+
+            <h2>Giriş</h2>
+            Lütfen kullanıcı adı ve şifrenizi giriniz.
+            <br/>
+            <br/>
+
+            <div id="login-box-name" style="margin-top:20px;">Adı:</div>
+            <div id="login-box-field" style="margin-top:20px;"><input name="j_username" id="j_username"
+                                                                      class="form-login" title="Username" value=""
+                                                                      size="30" maxlength="2048"/></div>
+            <div id="login-box-name">Şifresi:</div>
+            <div id="login-box-field"><input name="j_password" id="j_password" type="password" class="form-login"
+                                             title="Password" value="" size="30"
+                                             maxlength="2048" onkeypress="return submitenter(this,event)"/></div>
+            <br/>
+        <span class="login-box-options"><input type="checkbox" name='_spring_security_remember_me' value="1" /> Beni Hatırla
+            <a href="#" style="margin-left:30px;">Şifremi Unuttum</a></span>
+            <br/>
+            <br/>
+            <a href="#" onclick="submitlogin()"><img src="images/login-btn.png" width="103" height="42"
+                                                     style="margin-left:90px;"/></a>
+
+
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

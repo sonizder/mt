@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
+                template="#{templateBean.template}">
+    <ui:define name="content">
+        <p:tabView dynamic="true" effect="fade" rendered="#{sessionBean.activeCompanyId != 0}">
+            <p:tab title="Yıllık Satış Raporu" closable="true">
+                <ui:include src="/sales/monthlySales.xhtml"/>
+            </p:tab>
+            <p:tab title="Bilanço" closable="true">
+                <ui:include src="/accounting/detailedBalanceSheet.xhtml"/>
+            </p:tab>
+
+        </p:tabView>
+        <h:outputText value="Kullanıcınıza en az bir şirket tanımlayınız." rendered="#{sessionBean.activeCompanyId == 0}"/>
+    </ui:define>
+</ui:composition>
